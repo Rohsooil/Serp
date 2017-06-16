@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">ProjectOfGimal</string>
+    <string name="app_name">가천 길잡이</string>
+
+    <string name="sign_in">로그인</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_out">로그아웃</string>
+    <string name="facebook_app_id">166850093850310</string>
+    <string name="fb_login_protocol_scheme">fb166850093850310</string>
+    <string name="it_college">소프트웨어 학과\n컴퓨터공학과\n전자공학과\n에너지IT학과</string>
 </resources>
