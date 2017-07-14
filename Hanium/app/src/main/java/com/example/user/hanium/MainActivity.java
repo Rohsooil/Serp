@@ -9,9 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements PageChatting.OnFragmentInteractionListener,
-PageSenseMap.OnFragmentInteractionListener, PageMessage.OnFragmentInteractionListener,
-        PageFriend.OnFragmentInteractionListener, PageETC.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity {
     TabLayout mTab;
     ViewPager viewPager;
     PagerAdapter mPagerAdapter;
@@ -23,14 +21,12 @@ PageSenseMap.OnFragmentInteractionListener, PageMessage.OnFragmentInteractionLis
 
         mTab = (TabLayout) findViewById(R.id.tabs);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-
         arrFragments = new Fragment[5];
-        arrFragments[0] = new PageSenseMap();
-        arrFragments[1] = new PageFriend();
+        arrFragments[0] = new PageFriend();
+        arrFragments[1] = new PageSenseMap();
         arrFragments[2] = new PageMessage();
         arrFragments[3] = new PageChatting();
         arrFragments[4] = new PageETC();
-
         mPagerAdapter = new PagerAdapter(getSupportFragmentManager(), arrFragments);
         viewPager.setAdapter(mPagerAdapter);
         mTab.setupWithViewPager(viewPager);
@@ -55,9 +51,9 @@ PageSenseMap.OnFragmentInteractionListener, PageMessage.OnFragmentInteractionLis
         public CharSequence getPageTitle(int position) {
             switch (position){
                 case 0:
-                    return "Map";
-                case 1:
                     return "친구";
+                case 1:
+                    return "Map";
                 case 2:
                     return "메세지";
                 case 3:

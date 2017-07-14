@@ -1,108 +1,93 @@
 package com.example.user.hanium;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link PageFriend.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link PageFriend#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class PageFriend extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public PageFriend() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PageFriend.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PageFriend newInstance(String param1, String param2) {
-        PageFriend fragment = new PageFriend();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    ViewGroup v;
+    ListView listView;
+    ArrayList<Friend> friendList;
+    MyAdapter adapter;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        v = (ViewGroup)inflater.inflate(R.layout.fragment_page_friend,container,false);
+        friendList = new ArrayList<Friend>();
+        friendList.add(new Friend("김희재"));
+        friendList.add(new Friend("정일형"));
+        friendList.add(new Friend("정태용"));
+        friendList.add(new Friend("한상빈"));
+        friendList.add(new Friend("노수일"));
+        listView = (ListView) v.findViewById(R.id.friendList);
+        adapter = new MyAdapter(getContext(),R.layout.list_friend,friendList);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Friend friend = (Friend) adapter.getItem(position);
+                Toast.makeText(getContext(),friend.getName(),Toast.LENGTH_LONG).show();
+            }
+        });
+
+        return v;
+    }
+
+    class MyAdapter extends BaseAdapter{
+        Context mcontext;
+        int list_friend;
+        ArrayList<Friend> friendList;
+        LayoutInflater layoutInflater;
+
+        public MyAdapter(Context context, int list_friend, ArrayList<Friend> friendList){
+            mcontext = context;
+            this.list_friend = list_friend;
+            this.friendList = friendList;
+            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+        @Override
+        public int getCount() {
+            return friendList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return friendList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            FriendLayout friendLayout = null;
+            if(convertView == null){
+                friendLayout = new FriendLayout(mcontext);
+            } else {
+                friendLayout = (FriendLayout)convertView;
+            }
+            Friend friend = friendList.get(position);
+            friendLayout.setName(friend.getName());
+            return friendLayout;
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page_friend, container, false);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

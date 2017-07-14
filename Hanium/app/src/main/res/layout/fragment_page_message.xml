@@ -5,9 +5,13 @@
     tools:context="com.example.user.hanium.PageMessage">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:id="@+id/msgList"
+        android:divider="#FF000000"
+        android:dividerHeight="2dp"
+        android:listSelector="#FFAAAAAA"
+        android:textFilterEnabled="true">
+    </ListView>
 </FrameLayout>
