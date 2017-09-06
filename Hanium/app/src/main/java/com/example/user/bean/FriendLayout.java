@@ -1,4 +1,4 @@
-package com.example.user.hanium;
+package com.example.user.bean;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,7 @@ public class FriendLayout extends LinearLayout {
     LayoutInflater inflater;
 
     TextView nameText;
+    TextView profileText;
 
     public FriendLayout(Context context) {
         super(context);
@@ -25,9 +26,11 @@ public class FriendLayout extends LinearLayout {
         inflater=(LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.list_friend,this,true);
         nameText = (TextView) findViewById(R.id.friendName);
+        profileText = (TextView) findViewById(R.id.friendProfile);
     }
 
     public void setName(String name){
         nameText.setText(name);
     }
+    public void setProfile(String profile) { profileText.setText(profile); }
 }

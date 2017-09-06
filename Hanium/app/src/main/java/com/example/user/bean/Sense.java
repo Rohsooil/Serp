@@ -1,13 +1,13 @@
-package com.example.user.hanium;
+package com.example.user.bean;
 
 /**
  * Created by food8 on 2017-07-15.
  */
 
-public class Message {
+public class Sense {
     private String sender = "";
     private String time ="";
-    public Message(String name,String time){
+    public Sense(String name, String time){
         this.sender = name;
         this.time = time;
     }

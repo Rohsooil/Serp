@@ -6,7 +6,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-        android:id="@+id/sender"
+        android:id="@+id/chatter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
@@ -30,26 +30,27 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:id="@+id/sendtime" />
+        android:id="@+id/sendChattime" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/sendtime"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="24dp">
+        app:layout_constraintTop_toBottomOf="@+id/sendChattime"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/sensecontent"
+            android:id="@+id/chatContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="뭘 더 넣어야댐 ㅅㅂ"
+            android:text="채팅내용임"
             android:textColor="#FFFFFF"
             android:textSize="15dp" />
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.user.hanium;
+package com.example.user.bean;
 
 import org.junit.Test;
 

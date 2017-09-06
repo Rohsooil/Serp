@@ -1,4 +1,4 @@
-package com.example.user.hanium;
+package com.example.user.bean;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,14 +10,14 @@ import android.widget.TextView;
  * Created by food8 on 2017-07-15.
  */
 
-public class MessageLayout extends ConstraintLayout {
+public class SenseLayout extends ConstraintLayout {
     Context mContext;
     LayoutInflater inflater;
 
     TextView nameText;
     TextView timeText;
 
-    public MessageLayout(Context context) {
+    public SenseLayout(Context context) {
         super(context);
         mContext = context;
         init();
