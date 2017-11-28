@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>로그인</title>
+  <!-- Bootstrap core CSS-->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="/css/sb-admin.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url(/images/index-bg.jpg);
+      background-size: 100% 100%;
+    }
+
+    .container {
+      margin-top: 30%;
+    }
+
+    .btn {
+      width: 70%;
+      margin-left:15%;
+      margin-top:3%;
+      margin-bottom:2%;
+      float: left;
+    }
+
+    .other-btn {
+      background-color: gray;
+      color: white;
+      padding: 10px;
+      display: inline-block;
+      margin-left: 15px;
+      border-radius:0.5rem;
+      text-decoration: none;
+    }
+
+    .other-btn:hover {
+      text-decoration: none;
+      background-color: #222222;
+      color: white;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      padding: 0;
+      border: 0;
+      margin: 0;
+
+    }
+
+    #logo{
+      position: absolute;
+      height: 100%;
+      width:100%;
+      
+      background: url(/images/logo.png);
+      
+      margin-left: 30%;
+      top:0%;
+      background-repeat: no-repeat;
+      z-index: -99;
+    }
+    #move1{
+      left:10%; 
+      top:10%;
+      position: absolute;
+      background: url(/images/1.png);
+      background-repeat: no-repeat;
+    }
+    #move2{
+      left:50%; 
+      top:10%;
+      position: absolute;
+      background: url(/images/2.png);
+      background-repeat: no-repeat;
+    }
+    #move3{
+      left:90%; 
+      top:10%;
+      position: absolute;
+      background: url(/images/3.png);
+      background-repeat: no-repeat;
+    }
+    #move4{
+      left:10%; 
+      top:80%;
+      position: absolute;
+      background: url(/images/4.png);
+      background-repeat: no-repeat;
+    }
+    #move5{
+      left:50%; 
+      top:85%;
+      position: absolute;
+      background: url(/images/5.png);
+      background-repeat: no-repeat;
+    }
+    #move6{
+      left:90%; 
+      top:80%;
+      position: absolute;
+      background: url(/images/6.png);
+      background-repeat: no-repeat;
+    }
+
+    .slidein {
+      animation-duration: 2s;
+      animation-name: slidein;
+      animation-iteration-count: 5;
+      animation-direction:alternate;
+    }
+
+    @keyframes slidein {
+      from {
+        margin-right: 10%;
+        margin-top: 0%;
+      }
+      to {
+        left: 50%;
+        top: 50%;
+      }
+    }
+  </style>
+
+</head>
+<div id="logo">&nbsp;</div>
+<body class="bg-dark">
+  
+    <div id="move1" class="slidein box">&nbsp;</div>
+    <!-- <div id="move2" class="slidein box">&nbsp</div> -->
+    <div id="move3" class="slidein box">&nbsp;</div>
+    <div id="move4" class="slidein box">&nbsp;</div>
+    <div id="move5" class="slidein box">&nbsp;</div>
+    <div id="move6" class="slidein box">&nbsp;</div>
+  <div class="container" style="height:100%; width:100%; margin-top:20%;">
+
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-body">
+        <form method="post" action="/login">
+          <div class="form-group">
+            <% if (locals.message){%>
+              <p>
+                <%= message %>
+              </p>
+              <%}%>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">이메일</label>
+            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" name="email" placeholder="Enter E-mail">
+          </div>
+          
+          <div class="form-group">
+           <br>
+            <label for="exampleInputPassword1">비밀번호</label>
+            <input class="form-control" id="exampleInputPassword1" name="password" type="password" placeholder="Password">
+          </div>
+           <br>
+            <button class="btn btn-primary btn-block">로그인</button> 
+        </form>
+        <br>
+        <br>
+        <div class="text-center">
+          <a class="other-btn" href="/signin">회원가입</a>
+          <a class="other-btn" href="/find_pw">비밀번호 찾기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>

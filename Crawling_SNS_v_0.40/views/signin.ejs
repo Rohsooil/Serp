@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>회원 가입</title>
+  <!-- Bootstrap core CSS-->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="/css/sb-admin.css" rel="stylesheet">
+  <style>
+      body {
+          background-image: url(./images/index-bg.png);
+          background-size: 100% 100%;
+      }
+      .failed{
+          color:red;
+      }
+      .card
+  </style>
+</head>
+
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">회원 가입</div>
+      <div class="card-body">
+        <form method="post" action="/signin">
+          <div class="form-group">
+            <label for="exampleInputLastName">이름</label>
+            <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" name="name" placeholder="이름">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">이메일</label>
+            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" name="email" placeholder="이메일을 입력하세요">
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="exampleInputPassword1">비밀번호</label>
+                <input class="form-control" id="exampleInputPassword1" type="password" name="password" placeholder="비밀번호">
+              </div>
+              <div class="col-md-6">
+                <label for="exampleConfirmPassword">비밀번호 확인</label>
+                <input class="form-control" id="exampleConfirmPassword" type="password"  name="userPw2" placeholder="비밀번호 확인">
+              </div>
+                 <br>
+              
+            </div>
+          </div>
+          <br/>
+           <!--<a class="btn btn-primary btn-block" href="signin.ejs/correct">회원가입 하기</a>-->
+           <button class="btn btn-primary btn-block">회원가입 하기</button>
+            <div class="text-center">
+              <a class="d-block small mt-3" href="/">로그인 화면</a>
+              <a class="d-block small" href="/find_pw">비밀번호가 기억이 나지 않나요?</a>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+</body>
+
+</html>
